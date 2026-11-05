@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ed">
+  <meta name="description" content="A cozy little French-to-English vocabulary game. Learn everyday French nouns.">
+  <title>French 100 — a little vocabulary game</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="French 100 home">
+        <span class="brand-mark" aria-hidden="true">é</span>
+        <span>petit<span class="brand-light"> vocab</span></span>
+      </a>
+      <div class="topbar-right">
+        <span class="daily-tag"><span aria-hidden="true">✦</span> THE 100 CLUB</span>
+        <button class="mute-button" id="mute-button" type="button" aria-label="Mute sounds" aria-pressed="false">
+          <span aria-hidden="true">♫</span><span class="mute-label">Sound on</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">A LITTLE FRENCH, EVERY DAY</p>
+      <h1 id="page-title">Words that <span>stick.</span></h1>
+      <p class="subtitle">100 everyday French nouns. You bring the English.</p>
+    </section>
+
+    <!-- Level Selection Screen -->
+    <section class="level-screen" id="level-screen">
+      <h2>Choose your deck</h2>
+      <div class="level-buttons">
+        <button id="btn-level-1" class="level-btn">
+          <strong>Level 1</strong>
+          <span>The foundational 100 words</span>
+        </button>
+        <button id="btn-level-2" class="level-btn">
+          <strong>Level 2</strong>
+          <span>100 new everyday words</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Game Screen -->
+    <section class="game-screen" id="game-screen" aria-label="French vocabulary game" hidden>
+      <div class="progress-area" aria-label="Game progress">
+        <div class="progress-meta">
+          <span id="progress-text">WORD 1 OF 100</span>
+          <span id="score-text">0 correct</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Words completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+      
+      <div class="card-wrap">
+        <article class="flashcard" id="flashcard">
+          <div class="card-topline">
+            <span class="language-pill"><span class="flag-dot" aria-hidden="true"></span> FRENCH</span>
+            <span class="card-sparkle" aria-hidden="true">✳</span>
+          </div>
+          <div class="word-stage">
+            <p class="prompt-label">HOW DO YOU SAY THIS IN ENGLISH?</p>
+            <h2 id="french-word">une maison</h2>
+            <p class="tiny-hint">Type the meaning, then press enter</p>
+          </div>
+          <form class="answer-form" id="answer-form" autocomplete="off">
+            <label class="sr-only" for="answer-input">English translation</label>
+            <input id="answer-input" name="answer" type="text" placeholder="Your translation…" autocapitalize="off" spellcheck="false" required>
+            <button id="submit-button" class="submit-button" type="submit" aria-label="Check answer">
+              <span aria-hidden="true">↗</span>
+            </button>
+          </form>
+          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+          <p class="correct-answer" id="correct-answer" aria-live="polite"></p>
+          <div class="card-footer"><span>TRUST YOUR GUT</span><span>ONE WORD AT A TIME <span aria-hidden="true">♥</span></span></div>
+        </article>
+      </div>
+      <p class="under-card-note"><span aria-hidden="true">☁</span> No pressure. Just a little practice.</p>
+    </section>
+
+    <!-- Results Screen -->
+    <section class="results-screen" id="results-screen" aria-labelledby="results-title" hidden>
+      <div class="results-heading">
+        <div class="result-flower" aria-hidden="true">✿</div>
+        <p class="eyebrow">YOU MADE IT THROUGH ALL 100</p>
+        <h2 id="results-title">Très bien!</h2>
+        <p class="results-subtitle">Every word learned is a little win.</p>
+      </div>
+      
+      <div class="score-card">
+        <div class="score-main">
+          <span class="score-caption">YOUR SCORE</span>
+          <strong id="result-score">0%</strong>
+        </div>
+        <div class="score-details">
+          <div><strong id="result-correct">0 / 100 correct</strong><span>got it right</span></div>
+          <div><strong id="result-wrong">0 to review</strong><span>room to grow</span></div>
+          <div><strong id="result-time">0:00</strong><span>time taken</span></div>
+        </div>
+      </div>
+      
+      <div class="mistakes-section" id="mistakes-section">
+        <div class="mistakes-heading">
+          <div><p class="eyebrow">A GENTLE RECAP</p><h3>Words to revisit</h3></div>
+          <span class="review-stamp" aria-hidden="true">✎</span>
+        </div>
+        <div id="mistakes-list" class="mistakes-list"></div>
+      </div>
+
+      <div class="correct-section" id="correct-section">
+        <div class="mistakes-heading" style="margin-top: 35px;">
+          <div><p class="eyebrow">NAILED IT</p><h3>Words you got right</h3></div>
+          <span class="review-stamp" style="color:var(--green);" aria-hidden="true">✔</span>
+        </div>
+        <div id="correct-list" class="mistakes-list"></div>
+      </div>
+      
+      <button class="play-again-button" id="play-again-button" type="button">Play another round <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <footer class="page-footer">
+      <span>MADE FOR CURIOUS MINDS</span>
+      <span>un petit pas à la fois <span aria-hidden="true">✿</span></span>
+    </footer>
+  </main>
+</body>
+</html>

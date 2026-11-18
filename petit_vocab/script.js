@@ -207,7 +207,8 @@ const LEVEL2_WORDS = [
   { french: "une gare", answer: "station", accepted: ["station", "train station"] },
   { french: "un billet", answer: "ticket", accepted: ["ticket"] },
   { french: "un sac à dos", answer: "backpack", accepted: ["backpack"] },
-  { french: "une poche", answer: "pocket", accepted: ["pocket"] }
+  { french: "une poche", answer: "pocket", accepted: ["pocket"] },
+  { french: "un accord", answer: "agreement", accepted: ["agreement", "chord"] }
 ];
 
 const LEVEL3_WORDS = [
